@@ -19,3 +19,9 @@ var player2;
 
     }, 250);
 }());
+
+window.addEventListener("keydown", ((evt) => {
+    const direction = evt.key;
+    player1.changeDirection(direction);
+    player2.changeDirection(direction);
+}));
