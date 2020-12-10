@@ -13,6 +13,7 @@ var player2;
     window.setInterval(() => {
         player1.update();
         player1.draw();
+        //console.log(player1);
         player2.update();
         player2.draw();
         

@@ -3,6 +3,7 @@ function Player1 () {
     this.y = 0;
     this.xSpeed = scale * 1;
     this.ySpeed = 0;
+    this.tail = [];
 
     this.draw = function() {
         ctx.fillStyle = "#FFFFFF";
@@ -10,6 +11,15 @@ function Player1 () {
     }
 
     this.update = function() {
+        for (var i = -1; i < this.tail.length; i++) {
+            this.tail[i] = { x: this.x, y: this.y };
+        }
+
+        
+
+        console.log(this.tail);
+
+
         this.x += this.xSpeed;
         this.y += this.ySpeed;
 
