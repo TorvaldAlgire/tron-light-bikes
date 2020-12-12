@@ -4,6 +4,7 @@ function Player1 () {
     this.xSpeed = scale * 1;
     this.ySpeed = 0;
     this.tail = [];
+    
 
     this.draw = function() {
         ctx.fillStyle = "#FFFFFF";
@@ -11,17 +12,15 @@ function Player1 () {
     }
 
     this.update = function() {
-        for (var i = -1; i < this.tail.length; i++) {
-            this.tail[i] = { x: this.x, y: this.y };
-        }
-
-        
-
-        console.log(this.tail);
-
-
         this.x += this.xSpeed;
         this.y += this.ySpeed;
+
+        this.location = { x: this.x, y: this.y};
+        this.tail.push(this.location);
+
+        
+        //console.log(this.tail);
+        //console.log(this.location);
 
         if (this.x > canvas.width) {
             this.x = 0;
@@ -59,5 +58,23 @@ function Player1 () {
                 this.ySpeed = 0;
             break;
         }
+    }
+
+    this.checkCollision = function (player2) {
+        for (var i = 0; i < player2.tail; i++) {
+            if (this.x === player2.tail[i].x && this.y === player2.tail[i].y) {
+                console.log("Game Over 3")
+
+                return true;
+        } else if (this.x === this.tail[i].x && this.y === this.tail[i].y) {
+            console.log("Game Over 4")
+
+            return true;
+            } else {
+                return false;
+            }
+
+        }
+        
     }
 }
