@@ -12,12 +12,14 @@ var player2;
 
     window.setInterval(() => {
         player1.update();
+        player1.checkCollision(player2.tail);
         player1.draw();
         player2.update();
+        player2.checkCollision(player1);
         player2.draw();
 
-        player1.checkCollision(player2);
-        player2.checkCollision(player1);
+        
+        
         
 
     }, 250);
